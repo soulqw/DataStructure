@@ -73,7 +73,6 @@ public class FirstTest {
 //        preOrderTraveral(treeNode);  //3 2 9 10 8 4
 //        inOrderTraveral(treeNode); // 2 9 10 3 8 4
 //        postOrderTraveral(treeNode); // 2 9 10 8 4 3
-
 //        preOderTraverWithStack(treeNode); // 3 2 9 10 8 4
         levelOrderTraversal(treeNode);
     }
@@ -117,4 +116,5 @@ public class FirstTest {
             }
         }
     }
+    
 }
