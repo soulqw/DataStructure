@@ -6,12 +6,31 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] data = {1, 4, 9, 10, 22, 13, 3, 7};
-        bubbleSortV3(data);
+        sort(3, data);
         System.out.println(Arrays.toString(data));
     }
 
+    public static void sort(int type, int[] data) {
+        long startTime = System.nanoTime();
+        switch (type) {
+            default:
+            case 1:
+                bubbleSortV1(data);
+                break;
+            case 2:
+                bubbleSortV2(data);
+                break;
+            case 3:
+                bubbleSortV3(data);
+                break;
+        }
+
+        long endTime = System.nanoTime();
+        long all = endTime - startTime;
+        System.out.println("time:" + all);
+    }
+
     public static void bubbleSortV1(int[] data) {
-        long startTime = System.currentTimeMillis();
         for (int i = 0; i < data.length - 1; i++) {
             for (int j = 0; j < data.length - 1 - i; j++) {
 //                int temp;
@@ -25,14 +44,9 @@ public class BubbleSort {
                 }
             }
         }
-
-        long endTime = System.currentTimeMillis();
-        long all = endTime - startTime;
-        System.out.println("time:" + all);
     }
 
     public static void bubbleSortV2(int[] data) {
-        long startTime = System.currentTimeMillis();
         boolean isSorted = true;
         for (int i = 0; i < data.length - 1; i++) {
             for (int j = 0; j < data.length - 1 - i; j++) {
@@ -47,13 +61,9 @@ public class BubbleSort {
                 break;
             }
         }
-        long endTime = System.currentTimeMillis();
-        long all = endTime - startTime;
-        System.out.println("time:" + all);
     }
 
     public static void bubbleSortV3(int[] data) {
-        long startTime = System.currentTimeMillis();
         boolean isSorted = true;
         int lastExchangedIndex = 0;
         int sortBorder = data.length - 1;
@@ -72,8 +82,5 @@ public class BubbleSort {
                 break;
             }
         }
-        long endTime = System.currentTimeMillis();
-        long all = endTime - startTime;
-        System.out.println("time:" + all);
     }
 }
