@@ -6,8 +6,9 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] data = {1, 4, 9, 10, 22, 13, 3, 7};
-        sort(3, data);
-        System.out.println(Arrays.toString(data));
+        int[] data2 = {2, 3, 4, 5, 6, 7, 8, 1};
+        sort(4, data2);
+        System.out.println(Arrays.toString(data2));
     }
 
     public static void sort(int type, int[] data) {
@@ -22,6 +23,9 @@ public class BubbleSort {
                 break;
             case 3:
                 bubbleSortV3(data);
+                break;
+            case 4:
+                cocktailSort(data);
                 break;
         }
 
@@ -78,6 +82,37 @@ public class BubbleSort {
                 }
             }
             sortBorder = lastExchangedIndex;
+            if (isSorted) {
+                break;
+            }
+        }
+    }
+
+    public static void cocktailSort(int[] data) {
+        for (int i = 0; i < data.length / 2; i++) {
+
+            boolean isSorted = true;
+            for (int j = i, size = data.length - 1 - i; j < size; j++) {
+                if (data[j] > data[j + 1]) {
+                    data[j] ^= data[j + 1];
+                    data[j + 1] ^= data[j];
+                    data[j] ^= data[j + 1];
+                    isSorted = false;
+                }
+            }
+            if (isSorted) {
+                break;
+            }
+
+            isSorted = true;
+            for (int j = data.length - 1 - i; j > i; j--) {
+                if (data[j] < data[j - 1]) {
+                    data[j] ^= data[j - 1];
+                    data[j - 1] ^= data[j];
+                    data[j] ^= data[j - 1];
+                    isSorted = false;
+                }
+            }
             if (isSorted) {
                 break;
             }
