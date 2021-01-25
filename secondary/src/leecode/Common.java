@@ -17,19 +17,18 @@ public class Common {
      */
     public static int[] twoSum(int target, int[] nums) {
         int[] result = new int[2];
-        for (int i = 0, size = nums.length; i < size; i++) {
-            int element = nums[i];
-            result[0] = i;
-            for (int j = i + 1, size2 = nums.length; j < size2; j++) {
-                if (element + nums[j] == target) {
+        for (int i = 0; i < nums.length; i++) {
+            int firstNumber = nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                int second = nums[j];
+                if (target == (firstNumber + second)) {
+                    result[0] = i;
                     result[1] = j;
-                    return result;
                 }
             }
         }
-        return null;
+        return result;
     }
-
 
     /**
      * 找到数组中重复的元素
@@ -237,8 +236,9 @@ public class Common {
     }
 
     /**
-     *  删除排序数组中的重复项 II
+     * 删除排序数组中的重复项 II
      * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/
+     *
      * @param nums
      * @return
      */
@@ -299,6 +299,7 @@ public class Common {
 
 
     public static void main(String[] args) {
+        int p[]
         removeDuplicates(new int[]{0, 0, 1, 1, 1, 1, 2, 3, 3});
     }
 
