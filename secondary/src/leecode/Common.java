@@ -30,6 +30,19 @@ public class Common {
         return result;
     }
 
+    public static int[] twoSunV2(int target, int[] nums) {
+//        Map<Integer, Integer> map = new TreeMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int currentKey = nums[i];
+            if (map.containsKey(target - currentKey)) {
+                return new int[]{i, map.get(target - currentKey)};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[0];
+    }
+
     /**
      * 找到数组中重复的元素
      * https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
@@ -299,8 +312,9 @@ public class Common {
 
 
     public static void main(String[] args) {
-        int p[]
-        removeDuplicates(new int[]{0, 0, 1, 1, 1, 1, 2, 3, 3});
+//        removeDuplicates(new int[]{0, 0, 1, 1, 1, 1, 2, 3, 3});
+        int[] result = twoSunV2(9, new int[]{2, 7, 11, 15});
+        System.out.println("args = " + result);
     }
 
 }
