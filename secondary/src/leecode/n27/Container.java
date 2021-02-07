@@ -24,6 +24,7 @@ public class Container {
         return elementSize;
     }
 
+
     public static int removeElementV2(int[] nums, int val) {
         int i = 0;
         for (int j = 0; j < nums.length; j++) {
