@@ -23,17 +23,24 @@ public class Number206 {
         }
     }
 
+    /**
+     * https://mp.weixin.qq.com/s/pnvVP-0ZM7epB8y3w_Njwg
+     *
+     * @param head
+     */
     public static ListNode reverseList(ListNode head) {
-        ListNode pre = null;
         ListNode current = head;
+        ListNode pre = null;
         while (current != null) {
-            ListNode next = current.next;
+            ListNode temp = current.next;
             current.next = pre;
             pre = current;
-            current = next;
+            current = temp;
         }
         return pre;
     }
+
+//
 
     public static void main(String[] args) {
 
